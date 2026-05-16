@@ -24,7 +24,7 @@ import com.alibaba.fastjson2.JSONObject;
 
 import com.google.common.base.Joiner;
 import com.google.common.base.Strings;
-import com.mongodb.MongoClient;
+import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
 import com.mongodb.client.MongoDatabase;
@@ -59,10 +59,11 @@ public class MongoDBReader extends Reader {
             this.password = originalConfig.getString(KeyConstant.MONGO_USER_PASSWORD, originalConfig.getString(KeyConstant.MONGO_PASSWORD));
             String database =  originalConfig.getString(KeyConstant.MONGO_DB_NAME, originalConfig.getString(KeyConstant.MONGO_DATABASE));
             String authDb =  originalConfig.getString(KeyConstant.MONGO_AUTHDB, database);
+            List<Object> list = originalConfig.getList(KeyConstant.MONGO_ADDRESS, Object.class);
             if(!Strings.isNullOrEmpty(this.userName) && !Strings.isNullOrEmpty(this.password)) {
-                this.mongoClient = MongoUtil.initCredentialMongoClient(originalConfig,userName,password,authDb);
+                this.mongoClient = MongoUtil.initCredentialMongoClient(list,userName,password,authDb);
             } else {
-                this.mongoClient = MongoUtil.initMongoClient(originalConfig);
+                this.mongoClient = MongoUtil.initMongoClient(list);
             }
         }
 
@@ -189,10 +190,11 @@ public class MongoDBReader extends Reader {
             this.password = readerSliceConfig.getString(KeyConstant.MONGO_USER_PASSWORD, readerSliceConfig.getString(KeyConstant.MONGO_PASSWORD));
             this.database = readerSliceConfig.getString(KeyConstant.MONGO_DB_NAME, readerSliceConfig.getString(KeyConstant.MONGO_DATABASE));
             this.authDb = readerSliceConfig.getString(KeyConstant.MONGO_AUTHDB, this.database);
+            List<Object> list = readerSliceConfig.getList(KeyConstant.MONGO_ADDRESS, Object.class);
             if(!Strings.isNullOrEmpty(userName) && !Strings.isNullOrEmpty(password)) {
-                mongoClient = MongoUtil.initCredentialMongoClient(readerSliceConfig,userName,password,authDb);
+                mongoClient = MongoUtil.initCredentialMongoClient(list,userName,password,authDb);
             } else {
-                mongoClient = MongoUtil.initMongoClient(readerSliceConfig);
+                mongoClient = MongoUtil.initMongoClient(list);
             }
 
             this.collection = readerSliceConfig.getString(KeyConstant.MONGO_COLLECTION_NAME);

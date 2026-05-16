@@ -38,7 +38,11 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <maven.compiler.encoding>UTF-8</maven.compiler.encoding>
-        <mysql.driver.version>5.1.47</mysql.driver.version>
+        <dameng.jdbc.version>8.1.4.181</dameng.jdbc.version>
+        <mysql.jdbc.version>8.0.33</mysql.jdbc.version>
+        <postgresql.jdbc.version>42.7.8</postgresql.jdbc.version>
+        <mongo.driver.version>5.7.0</mongo.driver.version>
+        <kingbase8.jdbc.version>9.0.1</kingbase8.jdbc.version>
     </properties>
 
     <modules>
@@ -54,8 +58,6 @@
         <module>kingbaseesreader</module>
         <module>oraclereader</module>
         <module>cassandrareader</module>
-        <module>oceanbasev10reader</module>
-        <module>obhbasereader</module>
         <module>rdbmsreader</module>
 
         <module>odpsreader</module>
@@ -81,7 +83,6 @@
         <module>loghubreader</module>
         <module>datahubreader</module>
         <module>starrocksreader</module>
-        <module>sybasereader</module>
         <module>dorisreader</module>
         <!-- writer -->
         <module>mysqlwriter</module>
@@ -93,8 +94,6 @@
         <module>postgresqlwriter</module>
         <module>kingbaseeswriter</module>
         <module>adswriter</module>
-        <module>oceanbasev10writer</module>
-        <module>obhbasewriter</module>
         <module>adbpgwriter</module>
         <module>hologresjdbcwriter</module>
         <module>rdbmswriter</module>
@@ -127,7 +126,6 @@
         <module>doriswriter</module>
         <module>selectdbwriter</module>
         <module>adbmysqlwriter</module>
-        <module>sybasewriter</module>
         <module>neo4jwriter</module>
         <module>milvuswriter</module>
         <!-- common support module -->
@@ -222,6 +220,39 @@
                 <groupId>org.apache.logging.log4j</groupId>
                 <artifactId>log4j-core</artifactId>
                 <version>2.17.1</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.dameng</groupId>
+                <artifactId>DmJdbcDriver8</artifactId>
+                <version>${dameng.jdbc.version}</version>
+                <scope>runtime</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>com.mysql</groupId>
+                <artifactId>mysql-connector-j</artifactId>
+                <version>${mysql.jdbc.version}</version>
+                <scope>runtime</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.postgresql</groupId>
+                <artifactId>postgresql</artifactId>
+                <version>${postgresql.jdbc.version}</version>
+                <scope>runtime</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.mongodb</groupId>
+                <artifactId>mongodb-driver-sync</artifactId>
+                <version>${mongo.driver.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>cn.com.kingbase</groupId>
+                <artifactId>kingbase8</artifactId>
+                <version>${kingbase8.jdbc.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
