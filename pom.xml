@@ -52,7 +52,6 @@
 
         <!-- reader -->
         <module>mysqlreader</module>
-        <module>drdsreader</module>
         <module>sqlserverreader</module>
         <module>postgresqlreader</module>
         <module>kingbaseesreader</module>
@@ -60,81 +59,44 @@
         <module>cassandrareader</module>
         <module>rdbmsreader</module>
 
-        <module>odpsreader</module>
-        <module>otsreader</module>
-        <module>otsstreamreader</module>
-        <module>hbase11xreader</module>
-        <module>hbase094xreader</module>
-        <module>hbase11xsqlreader</module>
-        <module>hbase20xsqlreader</module>
-
-        <module>ossreader</module>
-        <module>hdfsreader</module>
         <module>ftpreader</module>
         <module>txtfilereader</module>
         <module>streamreader</module>
         <module>clickhousereader</module>
 
         <module>mongodbreader</module>
-        <module>tdenginereader</module>
-        <module>gdbreader</module>
         <module>tsdbreader</module>
         <module>opentsdbreader</module>
-        <module>loghubreader</module>
-        <module>datahubreader</module>
         <module>starrocksreader</module>
         <module>dorisreader</module>
         <!-- writer -->
         <module>mysqlwriter</module>
         <module>starrockswriter</module>
-        <module>drdswriter</module>
-        <module>databendwriter</module>
         <module>oraclewriter</module>
         <module>sqlserverwriter</module>
         <module>postgresqlwriter</module>
         <module>kingbaseeswriter</module>
-        <module>adswriter</module>
-        <module>adbpgwriter</module>
-        <module>hologresjdbcwriter</module>
         <module>rdbmswriter</module>
 
 
-        <module>odpswriter</module>
-        <module>osswriter</module>
-        <module>otswriter</module>
-        <module>hbase11xwriter</module>
-        <module>hbase094xwriter</module>
-        <module>hbase11xsqlwriter</module>
-        <module>hbase20xsqlwriter</module>
-        <module>kuduwriter</module>
         <module>ftpwriter</module>
-        <module>hdfswriter</module>
         <module>txtfilewriter</module>
         <module>streamwriter</module>
 
         <module>elasticsearchwriter</module>
         <module>mongodbwriter</module>
-        <module>tdenginewriter</module>
-        <module>ocswriter</module>
         <module>tsdbwriter</module>
-        <module>gdbwriter</module>
         <module>oscarwriter</module>
-        <module>loghubwriter</module>
-        <module>datahubwriter</module>
         <module>cassandrawriter</module>
         <module>clickhousewriter</module>
         <module>doriswriter</module>
         <module>selectdbwriter</module>
-        <module>adbmysqlwriter</module>
         <module>neo4jwriter</module>
-        <module>milvuswriter</module>
         <!-- common support module -->
         <module>plugin-rdbms-util</module>
         <module>plugin-unstructured-storage-util</module>
         <module>gaussdbreader</module>
         <module>gaussdbwriter</module>
-        <module>datax-example</module>
-
     </modules>
 
     <dependencyManagement>
@@ -171,34 +133,6 @@
             </dependency>
 
             <dependency>
-                <groupId>com.taobao.tddl</groupId>
-                <artifactId>tddl-client</artifactId>
-                <version>${tddl.version}</version>
-                <exclusions>
-                    <exclusion>
-                        <groupId>com.google.guava</groupId>
-                        <artifactId>guava</artifactId>
-                    </exclusion>
-                    <exclusion>
-                        <groupId>com.taobao.diamond</groupId>
-                        <artifactId>diamond-client</artifactId>
-                    </exclusion>
-                </exclusions>
-            </dependency>
-
-            <dependency>
-                <groupId>com.taobao.diamond</groupId>
-                <artifactId>diamond-client</artifactId>
-                <version>${diamond.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>com.alibaba.search.swift</groupId>
-                <artifactId>swift_client</artifactId>
-                <version>${swift-version}</version>
-            </dependency>
-
-            <dependency>
                 <groupId>junit</groupId>
                 <artifactId>junit</artifactId>
                 <version>${junit-version}</version>
@@ -209,17 +143,6 @@
                 <artifactId>mockito-all</artifactId>
                 <version>1.9.5</version>
                 <scope>test</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.logging.log4j</groupId>
-                <artifactId>log4j-api</artifactId>
-                <version>2.17.1</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.apache.logging.log4j</groupId>
-                <artifactId>log4j-core</artifactId>
-                <version>2.17.1</version>
             </dependency>
 
             <dependency>
